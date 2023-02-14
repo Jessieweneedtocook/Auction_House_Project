@@ -28,4 +28,24 @@ public class Item {
     public String getItemType(){
         return itemType;
     }
+
+    public void setLotNumber(int lotNumber){
+        this.lotNumber = lotNumber;
+    }
+
+    public void setNameOfBuyer(String nameOfBuyer){
+        this.nameOfBuyer = nameOfBuyer;
+    }
+
+    public void setPriceSold(double priceSold){
+        this.priceSold = priceSold;
+    }
+
+    public void setYearSold(int yearSold){
+        this.yearSold = yearSold;
+    }
+
+    public void setItemType(String itemType){
+        this.itemType = itemType;
+    }
 }
