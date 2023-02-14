@@ -1,4 +1,6 @@
 public class Item {
+
+    // define item fields
     private int lotNumber;
 
     private String nameOfBuyer;
@@ -9,6 +11,7 @@ public class Item {
 
     private String itemType;
 
+    // define item get methods
     public int getLotNumber(){
         return lotNumber;
     }
@@ -29,6 +32,7 @@ public class Item {
         return itemType;
     }
 
+    // define item set methods
     public void setLotNumber(int lotNumber){
         this.lotNumber = lotNumber;
     }
@@ -49,6 +53,7 @@ public class Item {
         this.itemType = itemType;
     }
 
+    // define item constructor
     public Item(int lotNumber, String nameOfBuyer, double priceSold, int yearSold, String itemType) {
         this.lotNumber = lotNumber;
         this.nameOfBuyer = nameOfBuyer;
