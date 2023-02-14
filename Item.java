@@ -48,4 +48,12 @@ public class Item {
     public void setItemType(String itemType){
         this.itemType = itemType;
     }
+
+    public Item(int lotNumber, String nameOfBuyer, double priceSold, int yearSold, String itemType) {
+        this.lotNumber = lotNumber;
+        this.nameOfBuyer = nameOfBuyer;
+        this.priceSold = priceSold;
+        this.yearSold = yearSold;
+        this.itemType = itemType;
+    }
 }
