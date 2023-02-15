@@ -6,5 +6,12 @@ public class AuctionHouse {
 
     private List<Item> auctionHouseItems = new ArrayList<>();
 
+    public String getAuctionHouseName(){
+        return auctionHouseName;
+    }
+
+    public void setAuctionHouseName(String auctionHouseName){
+        this.auctionHouseName = auctionHouseName;
+    }
 
 }
