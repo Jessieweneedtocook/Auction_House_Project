@@ -47,4 +47,8 @@ public class AuctionHouse {
         }
         return greaterThan;
     }
+    public AuctionHouse(String auctionHouseName, List auctionHouseItems) {
+        this.auctionHouseName = auctionHouseName;
+        this.auctionHouseItems = auctionHouseItems;
+    }
 }
