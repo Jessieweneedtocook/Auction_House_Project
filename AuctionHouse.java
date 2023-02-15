@@ -29,4 +29,13 @@ public class AuctionHouse {
         }
         return maxPrice;
     }
+
+    public double avItemPrice(){
+        double total = 0;
+        for (Item i: auctionHouseItems) {
+            total = total + i.getPriceSold();
+        }
+        double avPrice = total / auctionHouseItems.size();
+        return avPrice;
+    }
 }
