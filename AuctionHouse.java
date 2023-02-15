@@ -18,4 +18,15 @@ public class AuctionHouse {
         auctionHouseItems.add(i);
     }
 
+    public Item highestPriceItem(){
+
+        if  (auctionHouseItems.isEmpty())
+            return null;
+        Item maxPrice = auctionHouseItems.get(0);
+        for (Item i: auctionHouseItems) {
+            if (maxPrice.getPriceSold() < i.getPriceSold())
+                maxPrice = i;
+        }
+        return maxPrice;
+    }
 }
