@@ -14,4 +14,8 @@ public class AuctionHouse {
         this.auctionHouseName = auctionHouseName;
     }
 
+    public void addItem(Item i){
+        auctionHouseItems.add(i);
+    }
+
 }
