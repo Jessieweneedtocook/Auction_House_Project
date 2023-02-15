@@ -38,4 +38,13 @@ public class AuctionHouse {
         double avPrice = total / auctionHouseItems.size();
         return avPrice;
     }
+
+    public List priceGreaterThan(double price) {
+        List<Item> greaterThan = new ArrayList<>();
+        for (Item i: auctionHouseItems) {
+            if (i.getPriceSold() > price)
+                greaterThan.add(i);
+        }
+        return greaterThan;
+    }
 }
