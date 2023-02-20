@@ -15,6 +15,11 @@ public class ReportingIO {
             int i = s.nextInt();
             switch (i) {
                 case 1:
+                    System.out.println("Auction house name: ");
+                    String auctionHouseName = s.nextLine();
+                    AuctionHouse auctionHouse = new AuctionHouse(auctionHouseName);
+                    r.addAuctionHouse(auctionHouse);
+                    System.out.println("Auction house " + auctionHouseName + " was added to report.");
 
                 case 2:
                     break;
