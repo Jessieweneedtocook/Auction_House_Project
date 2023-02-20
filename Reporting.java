@@ -21,13 +21,13 @@ public class Reporting {
         return maxPriceItem;
     }
 
-    public AuctionHouse highestAvPrice(){
+    public AuctionHouse highestAvPrice(int year){
         if  (auctionHouses.isEmpty())
             return null;
 
         AuctionHouse maxAvPrice = auctionHouses.get(0);
         for (AuctionHouse a: auctionHouses) {
-            if (a.avItemPrice() > maxAvPrice.avItemPrice())
+            if (a.avItemPrice(year) > maxAvPrice.avItemPrice(year))
                 maxAvPrice = a;
         }
         return maxAvPrice;
