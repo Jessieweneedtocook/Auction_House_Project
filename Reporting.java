@@ -33,5 +33,12 @@ public class Reporting {
         return maxAvPrice;
     }
 
+    public List<Item> allPriceGreaterThan(double price){
+        List<Item> greaterThan = new ArrayList<>();
+        for (AuctionHouse a: auctionHouses) {
+            greaterThan.addAll(a.priceGreaterThan(price));
+        }
+        return greaterThan;
+    }
 
 }
