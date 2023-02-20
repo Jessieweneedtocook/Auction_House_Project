@@ -64,7 +64,10 @@ public class ReportingIO {
                     }
 
                 case 4:
-
+                    System.out.println("Quitting menu");
+                    break;
+                default:
+                    System.out.println("Invalid option, must enter number between 1 and 4.");
             }
         }
 
