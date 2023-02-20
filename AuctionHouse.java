@@ -2,22 +2,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuctionHouse {
+
+    // define item fields
     private String auctionHouseName;
 
     private List<Item> auctionHouseItems = new ArrayList<>();
 
+
+    // define item get method
     public String getAuctionHouseName(){
         return auctionHouseName;
     }
 
+    // define item set method
     public void setAuctionHouseName(String auctionHouseName){
         this.auctionHouseName = auctionHouseName;
     }
 
+    // method for adding item to list of items in auction house
     public void addItem(Item i){
         auctionHouseItems.add(i);
     }
 
+    // method returns item sold for maximum price in the auction house
     public Item highestPriceItem(){
 
         if  (auctionHouseItems.isEmpty())
@@ -30,6 +37,7 @@ public class AuctionHouse {
         return maxPrice;
     }
 
+    // method returns the average price of items in the auction house
     public double avItemPrice(){
         double total = 0;
         for (Item i: auctionHouseItems) {
@@ -39,6 +47,7 @@ public class AuctionHouse {
         return avPrice;
     }
 
+    // method returns list of items with a price greater than a given value (price)
     public List priceGreaterThan(double price) {
         List<Item> greaterThan = new ArrayList<>();
         for (Item i: auctionHouseItems) {
@@ -47,6 +56,8 @@ public class AuctionHouse {
         }
         return greaterThan;
     }
+
+    // defined AuctionHouse constructor method
     public AuctionHouse(String auctionHouseName, List auctionHouseItems) {
         this.auctionHouseName = auctionHouseName;
         this.auctionHouseItems = auctionHouseItems;
