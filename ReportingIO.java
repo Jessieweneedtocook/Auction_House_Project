@@ -20,7 +20,7 @@ public class ReportingIO {
                 System.out.println("Option 1: Enter house data");
                 System.out.println("Option 2: Enter item data");
                 System.out.println("Option 3: Provide reporting data");
-                System.out.println("Exit");
+                System.out.println("Option 4: Exit menu");
                 s.nextLine();
             }
             int i = s.nextInt();
@@ -80,6 +80,7 @@ public class ReportingIO {
                     break;
                 case 4:
                     System.out.println("Quitting menu");
+                    quit = true;
                     break;
                 default:
                     System.out.println("Invalid option, must enter number between 1 and 4.");
