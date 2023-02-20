@@ -24,6 +24,7 @@ public class ReportingIO {
                 s.nextLine();
             }
             int i = s.nextInt();
+            s.nextLine();
             switch (i) {
                 case 1:
                     System.out.println("Auction house name: ");
@@ -31,16 +32,18 @@ public class ReportingIO {
                     AuctionHouse auctionHouse = new AuctionHouse(auctionHouseName);
                     r.addAuctionHouse(auctionHouse);
                     System.out.println("Auction house " + auctionHouseName + " was added to report.");
-
+                    break;
                 case 2:
                     System.out.println("Item lot number: ");
                     int lotNumber = s.nextInt();
+                    s.nextLine();
                     System.out.println("Name of buyer: ");
                     String nameOfBuyer = s.nextLine();
                     System.out.println("Item selling price: ");
                     double priceSold = s.nextDouble();
                     System.out.println("year sold: ");
                     int yearSold = s.nextInt();
+                    s.nextLine();
                     System.out.println("Item type (piece of furniture, a painting or a sculpture): ");
                     String itemType = s.nextLine();
                     System.out.println("Auction houses: ");
@@ -55,10 +58,12 @@ public class ReportingIO {
                     int index = houseNumber - 1;
                     AuctionHouse a = r.auctionHouses.get(index);
                     a.addItem(item);
+                    break;
 
                 case 3:
                     System.out.println("Auction house with highest average price in year: ");
                     int year = s.nextInt();
+                    s.nextLine();
                     AuctionHouse maxAvInYear = r.highestAvPrice(year);
                     Item maxPriceItem = r.highestPrice();
                     System.out.println("items with a price greater than: ");
@@ -72,7 +77,7 @@ public class ReportingIO {
                         System.out.println("---------------");
                         System.out.println("Item sold for highest price: \nLot number: " + maxPriceItem.getLotNumber() + "\nName of buyer: " + maxPriceItem.getNameOfBuyer() + "\nPrice sold for: " + maxPriceItem.getPriceSold() + "\nYear sold: " + maxPriceItem.getYearSold() + "\nItem type: " + maxPriceItem.getItemType());
                     }
-
+                    break;
                 case 4:
                     System.out.println("Quitting menu");
                     break;
@@ -83,6 +88,7 @@ public class ReportingIO {
 
     }
     public static void main(String[] args) {
-
+        ReportingIO consMenu = new ReportingIO();
+        consMenu.menu();
     }
 }
