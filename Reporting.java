@@ -13,12 +13,24 @@ public class Reporting {
         if  (auctionHouses.isEmpty())
             return null;
 
-        Item maxPrice = auctionHouses.get(0).highestPriceItem();
+        Item maxPriceItem = auctionHouses.get(0).highestPriceItem();
         for (AuctionHouse a: auctionHouses) {
-            if (a.highestPriceItem().getPriceSold() > maxPrice.getPriceSold())
-                maxPrice = a.highestPriceItem();
+            if (a.highestPriceItem().getPriceSold() > maxPriceItem.getPriceSold())
+                maxPriceItem = a.highestPriceItem();
         }
-        return maxPrice;
+        return maxPriceItem;
+    }
+
+    public AuctionHouse highestAvPrice(){
+        if  (auctionHouses.isEmpty())
+            return null;
+
+        AuctionHouse maxAvPrice = auctionHouses.get(0);
+        for (AuctionHouse a: auctionHouses) {
+            if (a.avItemPrice() > maxAvPrice.avItemPrice())
+                maxAvPrice = a;
+        }
+        return maxAvPrice;
     }
 
 
