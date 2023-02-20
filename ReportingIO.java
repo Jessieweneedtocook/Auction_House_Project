@@ -13,6 +13,16 @@ public class ReportingIO {
             System.out.println("Option 2: Enter item data");
             System.out.println("Option 3: Provide reporting data");
             System.out.println("Exit");
+            while (!s.hasNextInt()) {
+                System.out.println("Input is not an integer between 1 and 4.");
+                System.out.println("Menu");
+                System.out.println("---------------");
+                System.out.println("Option 1: Enter house data");
+                System.out.println("Option 2: Enter item data");
+                System.out.println("Option 3: Provide reporting data");
+                System.out.println("Exit");
+                s.nextLine();
+            }
             int i = s.nextInt();
             switch (i) {
                 case 1:
