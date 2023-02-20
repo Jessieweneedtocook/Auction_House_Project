@@ -30,6 +30,7 @@ public class AuctionHouse {
         if  (auctionHouseItems.isEmpty())
             return null;
         Item maxPrice = auctionHouseItems.get(0);
+
         for (Item i: auctionHouseItems) {
             if (maxPrice.getPriceSold() < i.getPriceSold())
                 maxPrice = i;
@@ -37,18 +38,22 @@ public class AuctionHouse {
         return maxPrice;
     }
 
-    // method returns the average price of items in the auction house
-    public double avItemPrice(){
+    // method returns the average price of items in the auction house for a given year
+    public double avItemPrice(int year){
         double total = 0;
+        int counter = 0;
         for (Item i: auctionHouseItems) {
-            total = total + i.getPriceSold();
+            if (i.getYearSold() == year) {
+                total = total + i.getPriceSold();
+                counter += 1;
+            }
         }
-        double avPrice = total / auctionHouseItems.size();
+        double avPrice = total / counter;
         return avPrice;
     }
 
     // method returns list of items with a price greater than a given value (price)
-    public List priceGreaterThan(double price) {
+    public List<Item> priceGreaterThan(double price) {
         List<Item> greaterThan = new ArrayList<>();
         for (Item i: auctionHouseItems) {
             if (i.getPriceSold() > price)
