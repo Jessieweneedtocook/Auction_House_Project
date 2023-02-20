@@ -36,11 +36,12 @@ public class ReportingIO {
                     int counter = 1;
                     for (AuctionHouse a: r.auctionHouses) {
                         System.out.println(counter + ". " + a.getAuctionHouseName());
+                        counter += 1;
                     }
                     System.out.println("Number of auction house to place item: ");
                     int houseNumber = s.nextInt();
                     Item item = new Item(lotNumber, nameOfBuyer, priceSold, yearSold, itemType);
-                    int index = counter - 1;
+                    int index = houseNumber - 1;
                     AuctionHouse a = r.auctionHouses.get(index);
                     a.addItem(item);
 
