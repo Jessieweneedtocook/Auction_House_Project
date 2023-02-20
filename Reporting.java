@@ -5,5 +5,6 @@ public class Reporting {
 
     private List<AuctionHouse> auctionHouses = new ArrayList<>();
 
-
+    public void addAuctionHouse(AuctionHouse a){
+        auctionHouses.add(a);
 }
