@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class ReportingIO {
@@ -34,7 +35,7 @@ public class ReportingIO {
                     String itemType = s.nextLine();
                     System.out.println("Auction houses: ");
                     int counter = 1;
-                    for (AuctionHouse a: r.auctionHouses) {
+                    for (AuctionHouse a : r.auctionHouses) {
                         System.out.println(counter + ". " + a.getAuctionHouseName());
                         counter += 1;
                     }
@@ -46,12 +47,24 @@ public class ReportingIO {
                     a.addItem(item);
 
                 case 3:
+                    System.out.println("Auction house with highest average price in year: ");
+                    int year = s.nextInt();
+                    AuctionHouse maxAvInYear = r.highestAvPrice(year);
+                    Item maxPriceItem = r.highestPrice();
+                    System.out.println("items with a price greater than: ");
+                    double greaterThan = s.nextDouble();
+                    List<Item> pricesGreater = r.allPriceGreaterThan(greaterThan);
+                    System.out.println("Reporting statistics: ");
+                    System.out.println("Auction house with highest average price in year " + year + " : " + maxAvInYear.getAuctionHouseName());
+                    System.out.println("Item sold for highest price: \nLot number: " + maxPriceItem.getLotNumber() + "\nName of buyer: " + maxPriceItem.getNameOfBuyer() + "\nPrice sold for: " + maxPriceItem.getPriceSold() + "\nYear sold: " + maxPriceItem.getYearSold() + "\nItem type: " + maxPriceItem.getItemType());
+                    System.out.println("All items with prices greater than: " + greaterThan);
+                    for (Item it : pricesGreater) {
+                        System.out.println("---------------");
+                        System.out.println("Item sold for highest price: \nLot number: " + maxPriceItem.getLotNumber() + "\nName of buyer: " + maxPriceItem.getNameOfBuyer() + "\nPrice sold for: " + maxPriceItem.getPriceSold() + "\nYear sold: " + maxPriceItem.getYearSold() + "\nItem type: " + maxPriceItem.getItemType());
+                    }
 
                 case 4:
 
-                default:
-                    System.out.println("Invalid option");
-                    break;
             }
         }
 
