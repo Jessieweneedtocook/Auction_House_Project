@@ -22,9 +22,30 @@ public class ReportingIO {
                     System.out.println("Auction house " + auctionHouseName + " was added to report.");
 
                 case 2:
-                    break;
+                    System.out.println("Item lot number: ");
+                    int lotNumber = s.nextInt();
+                    System.out.println("Name of buyer: ");
+                    String nameOfBuyer = s.nextLine();
+                    System.out.println("Item selling price: ");
+                    double priceSold = s.nextDouble();
+                    System.out.println("year sold: ");
+                    int yearSold = s.nextInt();
+                    System.out.println("Item type (piece of furniture, a painting or a sculpture): ");
+                    String itemType = s.nextLine();
+                    System.out.println("Auction houses: ");
+                    int counter = 1;
+                    for (AuctionHouse a: r.auctionHouses) {
+                        System.out.println(counter + ". " + a.getAuctionHouseName());
+                    }
+                    System.out.println("Number of auction house to place item: ");
+                    int houseNumber = s.nextInt();
+                    Item item = new Item(lotNumber, nameOfBuyer, priceSold, yearSold, itemType);
+                    int index = counter - 1;
+                    AuctionHouse a = r.auctionHouses.get(index);
+                    a.addItem(item);
+
                 case 3:
-                    break;
+
                 case 4:
 
                 default:
