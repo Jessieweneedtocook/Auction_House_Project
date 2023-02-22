@@ -12,7 +12,7 @@ public class ReportingIO {
             System.out.println("Option 1: Enter house data");
             System.out.println("Option 2: Enter item data");
             System.out.println("Option 3: Provide reporting data");
-            System.out.println("Exit");
+            System.out.println("Option 4: Exit menu");
             while (!s.hasNextInt()) {
                 System.out.println("Input is not an integer between 1 and 4.");
                 System.out.println("Menu");
@@ -26,22 +26,42 @@ public class ReportingIO {
             int i = s.nextInt();
             s.nextLine();
             switch (i) {
-                case 1:
+                case 1 -> {
                     System.out.println("Auction house name: ");
                     String auctionHouseName = s.nextLine();
                     AuctionHouse auctionHouse = new AuctionHouse(auctionHouseName);
                     r.addAuctionHouse(auctionHouse);
                     System.out.println("Auction house " + auctionHouseName + " was added to report.");
-                    break;
-                case 2:
+                }
+                case 2 -> {
+                    if (r.auctionHouses.size() == 0) {
+                        System.out.println("Currently no auction houses.");
+                        break;
+                    }
                     System.out.println("Item lot number: ");
+                    while (!s.hasNextInt()) {
+                        System.out.println("Lot number must be an integer value.");
+                        System.out.println("Item lot number: ");
+                        s.nextLine();
+                    }
                     int lotNumber = s.nextInt();
                     s.nextLine();
                     System.out.println("Name of buyer: ");
                     String nameOfBuyer = s.nextLine();
                     System.out.println("Item selling price: ");
+                    while (!s.hasNextDouble()) {
+                        System.out.println("Price sold must be a decimal value.");
+                        System.out.println("Item selling price: ");
+                        s.nextLine();
+                    }
                     double priceSold = s.nextDouble();
+                    s.nextLine();
                     System.out.println("year sold: ");
+                    while (!s.hasNextInt()) {
+                        System.out.println("Year sold must be an integer value.");
+                        System.out.println("Year sold: ");
+                        s.nextLine();
+                    }
                     int yearSold = s.nextInt();
                     s.nextLine();
                     System.out.println("Item type (piece of furniture, a painting or a sculpture): ");
@@ -53,42 +73,73 @@ public class ReportingIO {
                         counter += 1;
                     }
                     System.out.println("Number of auction house to place item: ");
-                    int houseNumber = s.nextInt();
+                    int houseNumber = 0;
+                    boolean houseNumCheck = true;
+                    while (houseNumCheck) {
+                        if (s.hasNextInt()) {
+                            houseNumber = s.nextInt();
+                            if (houseNumber < 1 || houseNumber > counter-1) {
+                                System.out.println("Auction house number must be an integer between 1 and " + (counter-1));
+                                System.out.println("Number of auction house to place item: ");
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                        else {
+                            System.out.println("Auction house number must be an integer value.");
+                            System.out.println("Number of auction house to place item: ");
+                        }
+                        s.nextLine();
+                    }
+                    s.nextLine();
+
                     Item item = new Item(lotNumber, nameOfBuyer, priceSold, yearSold, itemType);
                     int index = houseNumber - 1;
                     AuctionHouse a = r.auctionHouses.get(index);
                     a.addItem(item);
-                    break;
+                }
+                case 3 -> {
+                    if (r.allPriceGreaterThan(0.0).size() == 0) {
+                        System.out.println("No auction houses or items.");
+                        break;
+                    }
 
-                case 3:
                     System.out.println("Auction house with highest average price in year: ");
                     int year = s.nextInt();
                     s.nextLine();
                     AuctionHouse maxAvInYear = r.highestAvPrice(year);
                     Item maxPriceItem = r.highestPrice();
+
                     System.out.println("items with a price greater than: ");
                     double greaterThan = s.nextDouble();
                     List<Item> pricesGreater = r.allPriceGreaterThan(greaterThan);
                     System.out.println("Reporting statistics: ");
+                    System.out.println("---------------");
                     System.out.println("Auction house with highest average price in year " + year + " : " + maxAvInYear.getAuctionHouseName());
+                    System.out.println("---------------");
                     System.out.println("Item sold for highest price: \nLot number: " + maxPriceItem.getLotNumber() + "\nName of buyer: " + maxPriceItem.getNameOfBuyer() + "\nPrice sold for: " + maxPriceItem.getPriceSold() + "\nYear sold: " + maxPriceItem.getYearSold() + "\nItem type: " + maxPriceItem.getItemType());
+                    System.out.println("---------------");
                     System.out.println("All items with prices greater than: " + greaterThan);
                     for (Item it : pricesGreater) {
-                        System.out.println("---------------");
+                        System.out.println("-------");
                         System.out.println("Item sold for highest price: \nLot number: " + maxPriceItem.getLotNumber() + "\nName of buyer: " + maxPriceItem.getNameOfBuyer() + "\nPrice sold for: " + maxPriceItem.getPriceSold() + "\nYear sold: " + maxPriceItem.getYearSold() + "\nItem type: " + maxPriceItem.getItemType());
                     }
-                    break;
-                case 4:
+                    System.out.println("---------------");
+                }
+                case 4 -> {
                     System.out.println("Quitting menu");
                     quit = true;
-                    break;
-                default:
-                    System.out.println("Invalid option, must enter number between 1 and 4.");
+                }
+                default -> System.out.println("Invalid option, must enter number between 1 and 4.");
             }
         }
 
     }
     public static void main(String[] args) {
+        TestFile repIOTest = new TestFile();
+        repIOTest.test();
+
         ReportingIO consMenu = new ReportingIO();
         consMenu.menu();
     }
