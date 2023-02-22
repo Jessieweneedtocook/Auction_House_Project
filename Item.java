@@ -61,7 +61,7 @@ public class Item {
 
     // define item constructor
     /**
-     * This constructor method for item class sets up all internal fields of an item object.
+     * Constructor method for Item class sets up all internal fields of an item object.
      * @param lotNumber represents the items lot number
      * @param nameOfBuyer represents the name of the items buyer
      * @param priceSold represent the price the item was sold for
@@ -74,5 +74,16 @@ public class Item {
         this.priceSold = priceSold;
         this.yearSold = yearSold;
         this.itemType = itemType;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "lotNumber=" + lotNumber +
+                ", nameOfBuyer='" + nameOfBuyer + '\'' +
+                ", priceSold=" + priceSold +
+                ", yearSold=" + yearSold +
+                ", itemType='" + itemType + '\'' +
+                '}';
     }
 }

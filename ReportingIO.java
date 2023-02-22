@@ -123,12 +123,11 @@ public class ReportingIO {
                     System.out.println("---------------");
                     System.out.println("Auction house with highest average price in year " + year + " : " + maxAvInYear.getAuctionHouseName());
                     System.out.println("---------------");
-                    System.out.println("Item sold for highest price: \nLot number: " + maxPriceItem.getLotNumber() + "\nName of buyer: " + maxPriceItem.getNameOfBuyer() + "\nPrice sold for: " + maxPriceItem.getPriceSold() + "\nYear sold: " + maxPriceItem.getYearSold() + "\nItem type: " + maxPriceItem.getItemType());
+                    System.out.println("Item sold for highest price: \n" + maxPriceItem);
                     System.out.println("---------------");
-                    System.out.println("All items with prices greater than: " + greaterThan);
+                    System.out.println("All items with prices greater than: £" + greaterThan);
                     for (Item it : pricesGreater) {
-                        System.out.println("-------");
-                        System.out.println("Item sold for highest price: \nLot number: " + maxPriceItem.getLotNumber() + "\nName of buyer: " + maxPriceItem.getNameOfBuyer() + "\nPrice sold for: " + maxPriceItem.getPriceSold() + "\nYear sold: " + maxPriceItem.getYearSold() + "\nItem type: " + maxPriceItem.getItemType());
+                        System.out.println(it);
                     }
                     System.out.println("---------------");
                 }
@@ -142,8 +141,8 @@ public class ReportingIO {
 
     }
     public static void main(String[] args) {
-        TestFile repIOTest = new TestFile();
-        repIOTest.test();
+        //TestFile repIOTest = new TestFile();
+        //repIOTest.test();
 
         ReportingIO consMenu = new ReportingIO();
         consMenu.menu();
