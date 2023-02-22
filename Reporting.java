@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class represents a system that reports on all auction houses and their data
+ *
+ * @author Jessie Smith
+ */
 public class Reporting {
 
     // defined list of all auctionHouses
-    private List<AuctionHouse> auctionHouses = new ArrayList<>();
+    public List<AuctionHouse> auctionHouses = new ArrayList<>();
 
     // method that adds auction house to auctionHouses List
     public void addAuctionHouse(AuctionHouse a) {
@@ -12,6 +17,10 @@ public class Reporting {
     }
 
     // method that returns the highest prices item across all the auction houses
+    /**
+     * Method that returns the highest priced item across all auction house items
+     * @return returns the highest priced item of all items in all auction houses
+     */
     public Item highestPrice(){
         if  (auctionHouses.isEmpty())
             return null;
@@ -25,9 +34,15 @@ public class Reporting {
     }
 
     // method that returns the auction house with the highest average price in a given year
+    /**
+     * Method which returns the auction house with the highest average price in a given year.
+     * @param year is the year the auction house with the highest average price is being calculated
+     * @return returns the auction house with the highest average price
+     */
     public AuctionHouse highestAvPrice(int year){
         if  (auctionHouses.isEmpty())
             return null;
+
 
         AuctionHouse maxAvPrice = auctionHouses.get(0);
         for (AuctionHouse a: auctionHouses) {
@@ -38,6 +53,11 @@ public class Reporting {
     }
 
     // method that returns a list of all items with a price greater than a given value
+    /**
+     * Method that returns a list items with a price greater than a given value across all auction houses
+     * @param price is the price all items on the returned list must be greater than
+     * @return returns a list of items across all auction houses with a price greater than a given value
+     */
     public List<Item> allPriceGreaterThan(double price){
         List<Item> greaterThan = new ArrayList<>();
         for (AuctionHouse a: auctionHouses) {
