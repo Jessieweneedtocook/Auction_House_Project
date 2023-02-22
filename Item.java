@@ -1,5 +1,11 @@
+/**
+ * This class represents an item being stored in an auction house. contains methods and retrieve and set data about the item
+ *
+ * @author Jessie Smith
+ */
 public class Item {
 
+    
     // define item fields
     private int lotNumber;
 
@@ -54,6 +60,14 @@ public class Item {
     }
 
     // define item constructor
+    /**
+     * This constructor method for item class sets up all internal fields of an item object.
+     * @param lotNumber represents the items lot number
+     * @param nameOfBuyer represents the name of the items buyer
+     * @param priceSold represent the price the item was sold for
+     * @param yearSold represents the year the item was sold
+     * @param itemType represents the type of item being sold
+     */
     public Item(int lotNumber, String nameOfBuyer, double priceSold, int yearSold, String itemType) {
         this.lotNumber = lotNumber;
         this.nameOfBuyer = nameOfBuyer;
