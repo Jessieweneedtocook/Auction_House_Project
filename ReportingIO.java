@@ -1,6 +1,11 @@
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class represents an interface for the user to input and view data on auction houses and items
+ *
+ * @author Jessie Smith
+ */
 public class ReportingIO {
     public void menu() {
         Scanner s = new Scanner(System.in);
