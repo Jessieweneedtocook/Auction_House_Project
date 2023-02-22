@@ -24,21 +24,34 @@ public class TestFile {
 
 
         //testing highestPrice method
-        System.out.println("Answer should be item with lot number 7");
         System.out.println("highestPrice method works = " + (testR.highestPrice().getLotNumber() == 7));
+        System.out.println("Answer should be item with lot number 7");
+        System.out.println("Actual answer: " + testR.highestPrice().getLotNumber());
+        System.out.println("---------------");
 
         //testing highestAvPrice method
-        System.out.println("in year 1988, answer should be auction house 1");
         System.out.println("highestAvPrice method works = " + (testR.highestAvPrice(1988).getAuctionHouseName() == "House 1"));
+        System.out.println("in year 1988, answer should be auction house 1");
+        System.out.println("Actual answer: " + testR.highestAvPrice(1988).getAuctionHouseName());
+        System.out.println("---------------");
 
         //testing priceGreaterThan method
         List<Item> items = new ArrayList<>();
         items.add(item2);
         items.add(item1);
-        System.out.println("Items with price greater than 123");
         System.out.println("allPriceGreaterThan method works = " + (testR.allPriceGreaterThan(123).equals(items)));
+        System.out.println("answer should be items with lot number 7 and 2");
+        System.out.println("Actual answer: " + testR.allPriceGreaterThan(123));
+        System.out.println("---------------");
 
+        Reporting testR2 = new Reporting();
+        testR2.addAuctionHouse(new AuctionHouse("House 1"));
+        testR2.auctionHouses.get(0).addItem(new Item(4,"buyer_953",49.65,1985,"painting"));
+        testR2.auctionHouses.get(0).addItem(new Item(5,"buyer_931",73.35,1988,"sculpture"));
+        testR2.auctionHouses.get(0).addItem(new Item(6,"buyer_294",48.18,2010,"painting"));
 
+        //testing highestPricedItem
+        System.out.println("Items ");
     }
 
 
