@@ -40,7 +40,14 @@ public class Reporting {
      * @return returns the auction house with the highest average price
      */
     public AuctionHouse highestAvPrice(int year){
-        if  (auctionHouses.isEmpty())
+        int count = 0;
+        for (AuctionHouse a: auctionHouses) {
+            for (Item i: a.auctionHouseItems) {
+                if (i.getYearSold() == year)
+                    count += 1;
+            }
+        }
+        if (count == 0)
             return null;
 
 
