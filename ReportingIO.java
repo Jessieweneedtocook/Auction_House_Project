@@ -114,6 +114,11 @@ public class ReportingIO {
                     int year = s.nextInt();
                     s.nextLine();
                     AuctionHouse maxAvInYear = r.highestAvPrice(year);
+                    if (maxAvInYear == null) {
+                        System.out.println("No items sold in year " + year);
+                        break;
+                    }
+
                     Item maxPriceItem = r.highestPrice();
 
                     System.out.println("items with a price greater than: ");
@@ -121,7 +126,8 @@ public class ReportingIO {
                     List<Item> pricesGreater = r.allPriceGreaterThan(greaterThan);
                     System.out.println("Reporting statistics: ");
                     System.out.println("---------------");
-                    System.out.println("Auction house with highest average price in year " + year + " : " + maxAvInYear.getAuctionHouseName());
+                    System.out.println("Auction house with highest average price in year " + year + " : ");
+                    System.out.println(maxAvInYear.getAuctionHouseName());
                     System.out.println("---------------");
                     System.out.println("Item sold for highest price: \n" + maxPriceItem);
                     System.out.println("---------------");
@@ -141,8 +147,6 @@ public class ReportingIO {
 
     }
     public static void main(String[] args) {
-        //TestFile repIOTest = new TestFile();
-        //repIOTest.test();
 
         ReportingIO consMenu = new ReportingIO();
         consMenu.menu();

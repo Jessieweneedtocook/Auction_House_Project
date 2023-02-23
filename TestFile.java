@@ -3,24 +3,24 @@ import java.util.List;
 
 public class TestFile {
 
-    public void test() {
+    public static void main(String[] args) {
+
         Reporting testR = new Reporting();
         testR.addAuctionHouse(new AuctionHouse("House 0"));
         testR.addAuctionHouse(new AuctionHouse("House 1"));
 
-        Item item1 = new Item(2,"buyer_515",177.04,1988,"furniture");
-        Item item2 = new Item(7,"buyer_814",191.41,2015,"painting");
-        testR.auctionHouses.get(1).addItem(new Item(0,"buyer_474",99.9,2013,"furniture"));
-        testR.auctionHouses.get(0).addItem(new Item(1,"buyer_268",122.61,1975,"furniture"));
+        Item item1 = new Item(2, "buyer_515", 177.04, 1988, "furniture");
+        Item item2 = new Item(7, "buyer_814", 191.41, 2015, "painting");
+        testR.auctionHouses.get(1).addItem(new Item(0, "buyer_474", 99.9, 2013, "furniture"));
+        testR.auctionHouses.get(0).addItem(new Item(1, "buyer_268", 122.61, 1975, "furniture"));
         testR.auctionHouses.get(1).addItem(item1);
-        testR.auctionHouses.get(0).addItem(new Item(3,"buyer_112",29.55,1988,"furniture"));
-        testR.auctionHouses.get(1).addItem(new Item(4,"buyer_953",49.65,1985,"painting"));
-        testR.auctionHouses.get(1).addItem(new Item(5,"buyer_931",73.35,1988,"sculpture"));
-        testR.auctionHouses.get(0).addItem(new Item(6,"buyer_294",48.18,2010,"painting"));
+        testR.auctionHouses.get(0).addItem(new Item(3, "buyer_112", 29.55, 1988, "furniture"));
+        testR.auctionHouses.get(1).addItem(new Item(4, "buyer_953", 49.65, 1985, "painting"));
+        testR.auctionHouses.get(1).addItem(new Item(5, "buyer_931", 73.35, 1988, "sculpture"));
+        testR.auctionHouses.get(0).addItem(new Item(6, "buyer_294", 48.18, 2010, "painting"));
         testR.auctionHouses.get(0).addItem(item2);
-        testR.auctionHouses.get(1).addItem(new Item(8,"buyer_763",120.45,1991,"painting"));
-        testR.auctionHouses.get(0).addItem(new Item(9,"buyer_402",104.53,1990,"furniture"));
-
+        testR.auctionHouses.get(1).addItem(new Item(8, "buyer_763", 120.45, 1991, "painting"));
+        testR.auctionHouses.get(0).addItem(new Item(9, "buyer_402", 104.53, 1990, "furniture"));
 
 
         //testing highestPrice method
@@ -44,11 +44,11 @@ public class TestFile {
         System.out.println("Actual answer: " + testR.allPriceGreaterThan(123));
         System.out.println("---------------");
 
-        AuctionHouse testHouse = new AuctionHouse("House 1"));
-        Item item3 = new Item(5,"buyer_931",73.35,1988,"sculpture");
-        testHouse.addItem(new Item(4,"buyer_953",49.65,1988,"painting"));
+        AuctionHouse testHouse = new AuctionHouse("House 1");
+        Item item3 = new Item(5, "buyer_931", 73.35, 1988, "sculpture");
+        testHouse.addItem(new Item(4, "buyer_953", 49.65, 1988, "painting"));
         testHouse.addItem(item3);
-        testHouse.addItem(new Item(6,"buyer_294",48.18,2010,"painting"));
+        testHouse.addItem(new Item(6, "buyer_294", 48.18, 2010, "painting"));
 
         //testing highestPricedItem method
         System.out.println("highestPricedItem method works = " + (testHouse.highestPriceItem().getLotNumber() == 5));
@@ -65,13 +65,12 @@ public class TestFile {
         //test priceGreaterThan method
         List<Item> itemAuc = new ArrayList<>();
         itemAuc.add(item3);
-        System.out.println("priceGreaterThan method works = " + testHouse.priceGreaterThan(70));
+        System.out.println("priceGreaterThan method works = " + (testHouse.priceGreaterThan(70).equals(itemAuc)));
         System.out.println("for price > 70, answer should be an item with lot number 5");
         System.out.println("Actual answer: " + testHouse.priceGreaterThan(70));
         System.out.println("---------------");
 
-
+    }
     }
 
 
-}
