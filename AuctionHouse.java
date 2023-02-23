@@ -10,7 +10,7 @@ public class AuctionHouse {
 
     // define item fields
     private String auctionHouseName;
-    private List<Item> auctionHouseItems = new ArrayList<>();
+    public List<Item> auctionHouseItems = new ArrayList<>();
 
 
     // define item get method
